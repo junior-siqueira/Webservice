@@ -41,4 +41,14 @@ public class UserController {
 		result.use(Results.json()).from(internship, "internships").recursive().serialize();
 	}
 	
+	@Get
+	@Path("searchInternship/{id}")
+	public void searchInternship(int id){
+		InternshipDAO internshipDAO = new InternshipDAO();
+		Internship internship = internshipDAO.searchId(id);
+		internship.setStatus("0");
+		internshipDAO.updateStatus(internship);
+		result.use(Results.json()).from(internship, "internships").recursive().serialize();
+	}
+	
 }

@@ -8,7 +8,9 @@ import javax.persistence.EntityManager;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+
 import br.edu.fjn.ws.connection.Connection;
 import br.edu.fjn.ws.model.Internship;
 
@@ -47,22 +49,44 @@ public class InternshipDAO {
 		System.out.println();
 
 		List<Internship> internship = criteria.list();
-		System.out.println(internship.size());
 		return internship;
 
 	}
 	
 	
-	
-
-	
 	@SuppressWarnings("unchecked")
 	public static ArrayList<Internship> listAll() {
 
-		Criteria criteria = Connection.getSession().createCriteria(Internship.class);
+		Criteria criteria = Connection.getSession().createCriteria(Internship.class).addOrder(Order.asc("id"));
 
 		return (ArrayList<Internship>) criteria.list();
+	}
+	
+	
+	public Internship searchId(int id){
+		EntityManager manager = Connection.getConnection();
+		Session session = (Session) manager.getDelegate();
 
+		Criterion c1 = Restrictions.eq("id", id);
+		Criteria criteria = session.createCriteria(Internship.class);
+		criteria.add(c1);
+
+		return (Internship) criteria.uniqueResult();
+	}
+	
+	public void updateStatus(Internship internship) {
+		EntityManager manager = Connection.getConnection();
+		manager.getTransaction().begin();
+		try {
+			manager.merge(internship);
+			manager.getTransaction().commit();
+		} catch (NullPointerException e) {
+			manager.getTransaction().rollback();
+		} catch (Exception e) {
+			manager.getTransaction().rollback();
+		} finally {
+			manager.close();
+		}
 	}
 
 }
