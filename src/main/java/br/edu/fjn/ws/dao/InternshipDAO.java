@@ -88,5 +88,4 @@ public class InternshipDAO {
 			manager.close();
 		}
 	}
-
 }
