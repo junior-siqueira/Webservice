@@ -10,16 +10,16 @@ public class UserTest {
 	public static void main(String[] args) {
 		
 		User user = new User();
-		user.setUserName("Teste");
-		user.setUserPassword("121212");
+		user.setUserName("Sidney");
+		user.setUserPassword("111111");
 		
 		Supervisor supervisor = new Supervisor();
-		supervisor.setName("Teste");
-		supervisor.setContact("teste@gmail.com");
+		supervisor.setName("Sidney");
+		supervisor.setContact("sidneylima@gmail.com");
 		supervisor.setUser(user);
 		
 		Trainee trainee = new Trainee();
-		trainee.setName("Felipe Braga");
+		trainee.setName("Quesado Wins");
 		
 		Internship internship = new Internship();
 		internship.setTrainee(trainee);

@@ -34,10 +34,10 @@ public class UserController {
 	}
 	
 	@Get
-	@Path("search/{string}")
-	public void search(String string){
+	@Path("search/{id}")
+	public void search(Integer id){
 		InternshipDAO dao = new InternshipDAO();
-		List<Internship> internship = dao.search(string);
+		List<Internship> internship = dao.searchInternshipBySuperv(id);
 		result.use(Results.json()).from(internship, "internships").recursive().serialize();
 	}
 	
@@ -46,7 +46,7 @@ public class UserController {
 	public void searchInternship(int id){
 		InternshipDAO internshipDAO = new InternshipDAO();
 		Internship internship = internshipDAO.searchId(id);
-		internship.setStatus("0");
+		internship.setStatus("1");
 		internshipDAO.updateStatus(internship);
 		result.use(Results.json()).from(internship, "internships").recursive().serialize();
 	}
