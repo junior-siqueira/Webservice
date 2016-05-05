@@ -20,11 +20,11 @@ public class UserSession implements Serializable {
 	private static final long serialVersionUID = 3768559804565779075L;
 	private User user;
 
-	public User getUsuario() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUsuario(User user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 	

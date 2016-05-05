@@ -22,11 +22,7 @@ public class InternshipController {
 	@Inject
 	private Result result;
 	
-	@Path("/index")
-	public void index(){
-		
-	}
-	
+
 	@Post
 	@Path("/insert")
 	public void insert(Internship internship){
