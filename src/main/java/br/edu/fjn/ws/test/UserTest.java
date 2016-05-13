@@ -10,21 +10,23 @@ public class UserTest {
 	public static void main(String[] args) {
 		
 		User user = new User();
-		user.setUserName("Sidney");
-		user.setUserPassword("111111");
+		user.setUserName("Allen");
+		user.setUserPassword("3333");
 		
 		Supervisor supervisor = new Supervisor();
-		supervisor.setName("Sidney");
-		supervisor.setContact("sidneylima@gmail.com");
+		supervisor.setName("Allen");
+		supervisor.setContact("allengomes@gmail.com");
 		supervisor.setUser(user);
 		
 		Trainee trainee = new Trainee();
-		trainee.setName("Quesado Wins");
+		trainee.setName("Gabilol");
 		
 		Internship internship = new Internship();
 		internship.setTrainee(trainee);
 		internship.setSupervisor(supervisor);
-		internship.setStatus("1");
+		internship.setDateStart(DateTest.saveDate().toString());
+		internship.setDateEvalution("19/05/2016");
+		internship.setStatus("0");
 		
 		InternshipDAO internshipDAO = new InternshipDAO();
 		internshipDAO.insert(internship);
