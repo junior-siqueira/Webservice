@@ -65,7 +65,7 @@ body{
 				<div class="mdl-cell mdl-cell--12-col  login-btn-con">
 					<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary btn">Login</button>
 				</div>
-				<span style="color: red;">${message} </span>
+				<span style="color: red;" id="alert">${message} </span>
 			</div>
 	    </main>
     </div>	
