@@ -38,7 +38,7 @@ public class DateTest {
 
 		System.out.println(saveDate().toString());
 		
-		System.out.println(compareDate("20/05/2016"));
+		System.out.println(compareDate("29/06/2016"));
 		
 	}
 }

@@ -18,11 +18,8 @@ import br.edu.fjn.ws.model.Supervisor;
 public class InternshipDAO {
 
 	public void insert(Internship internship) {
-
 		EntityManager manager = Connection.getConnection();
-
 		manager.getTransaction().begin();
-
 		try {
 			manager.persist(internship);
 			manager.getTransaction().commit();
@@ -34,7 +31,6 @@ public class InternshipDAO {
 			manager.clear();
 			manager.close();
 		}
-
 	}
 	
 	public List<Internship> searchInternshipBySuperv(Integer idSuperv) {
@@ -57,13 +53,19 @@ public class InternshipDAO {
 		List<Internship> internship = CIntern.list();
 		return internship;
 	}
+		
+	@SuppressWarnings("unchecked")
+	public static ArrayList<Internship> listStatusEvaluation(){
+		Criteria criteria = Connection.getSession().createCriteria(Internship.class).addOrder(Order.asc("id"));
+		Criterion criterion = Restrictions.eq("status", "1");
+		criteria.add(criterion);
+		return (ArrayList<Internship>) criteria.list();
+	}
 	
 	
 	@SuppressWarnings("unchecked")
 	public static ArrayList<Internship> listAll() {
-
 		Criteria criteria = Connection.getSession().createCriteria(Internship.class).addOrder(Order.asc("id"));
-
 		return (ArrayList<Internship>) criteria.list();
 	}
 	
@@ -71,11 +73,9 @@ public class InternshipDAO {
 	public Internship searchId(int id){
 		EntityManager manager = Connection.getConnection();
 		Session session = (Session) manager.getDelegate();
-
 		Criterion c1 = Restrictions.eq("id", id);
 		Criteria criteria = session.createCriteria(Internship.class);
 		criteria.add(c1);
-
 		return (Internship) criteria.uniqueResult();
 	}
 	

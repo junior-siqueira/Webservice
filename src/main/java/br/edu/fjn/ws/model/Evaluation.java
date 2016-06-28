@@ -25,11 +25,9 @@ public class Evaluation implements Serializable {
 	@SequenceGenerator(name = "evaluation_seq", sequenceName = "evaluation_seq", initialValue = 1, allocationSize = 1)
 	private Integer id;
 	
-	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-	private Trainee trainee;
+	private String trainee;
 	
-	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-	private Supervisor supervisor;
+	private String supervisor;
 	
 	@Column(nullable = false)
 	private String dateEvaluation;
@@ -64,19 +62,19 @@ public class Evaluation implements Serializable {
 		this.id = id;
 	}
 
-	public Trainee getTrainee() {
+	public String getTrainee() {
 		return trainee;
 	}
 
-	public void setTrainee(Trainee trainee) {
+	public void setTrainee(String trainee) {
 		this.trainee = trainee;
 	}
 
-	public Supervisor getSupervisor() {
+	public String getSupervisor() {
 		return supervisor;
 	}
 
-	public void setSupervisor(Supervisor supervisor) {
+	public void setSupervisor(String supervisor) {
 		this.supervisor = supervisor;
 	}
 
@@ -284,7 +282,4 @@ public class Evaluation implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
 }

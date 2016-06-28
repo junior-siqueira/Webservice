@@ -14,6 +14,10 @@ import br.edu.fjn.ws.model.User;
 @Controller
 public class LoginController {
 
+	public LoginController() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	@Inject
 	private Result result;
 	

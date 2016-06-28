@@ -1,10 +1,13 @@
 package br.edu.fjn.ws.test;
 
+import br.edu.fjn.ws.controller.EvaluationController;
 import br.edu.fjn.ws.dao.EvaluationDAO;
 import br.edu.fjn.ws.dao.InternshipDAO;
+import br.edu.fjn.ws.dao.TestandoDAO;
 import br.edu.fjn.ws.model.Evaluation;
 import br.edu.fjn.ws.model.Internship;
 import br.edu.fjn.ws.model.Supervisor;
+import br.edu.fjn.ws.model.Testando;
 import br.edu.fjn.ws.model.Trainee;
 import br.edu.fjn.ws.model.User;
 import br.edu.fjn.ws.resources.CompareDate;
@@ -42,8 +45,8 @@ public class UserTest {
 		supervisor.setId(2);
 		
 		Evaluation evaluation = new Evaluation();
-		evaluation.setTrainee(trainee);
-		evaluation.setSupervisor(supervisor);
+		evaluation.setTrainee("2");;
+		evaluation.setSupervisor("2");
 		evaluation.setDateEvaluation(CompareDate.saveDate().toString());
 		evaluation.setDateResponse("19/05/2016");
 		evaluation.setPersonalPresentation("Apresentação ruim");
@@ -60,8 +63,19 @@ public class UserTest {
 		EvaluationDAO dao = new EvaluationDAO();
 		dao.insert(evaluation);
 		
+		EvaluationController controller = new EvaluationController();
+		controller.insert(evaluation);
+		
+		
 		System.out.println("Dados inseridos com sucesso");
-		System.out.println(evaluation.getTrainee().getId());
-		System.out.println(trainee.getName());
+		System.out.println(evaluation.getTrainee());
+		System.out.println(evaluation);
+		
+		/*Testando testando = new Testando();
+		testando.setNome("Junior");
+		testando.setSenha("123123");
+		TestandoDAO dao = new TestandoDAO();
+		dao.insert(testando);*/
+		
 	}
 }

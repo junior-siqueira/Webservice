@@ -4,10 +4,14 @@ import java.util.ArrayList;
 
 import javax.inject.Inject;
 
+import br.com.caelum.vraptor.Consumes;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
+import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.serialization.Deserializes;
+import br.com.caelum.vraptor.serialization.gson.WithoutRoot;
 import br.com.caelum.vraptor.view.Results;
 import br.edu.fjn.ws.dao.EvaluationDAO;
 import br.edu.fjn.ws.dao.InternshipDAO;
@@ -17,6 +21,10 @@ import br.edu.fjn.ws.model.Internship;
 @Controller
 @Path("/evaluation")
 public class EvaluationController {
+	
+	public EvaluationController() {
+		// TODO Auto-generated constructor stub
+	}
 
 	@Inject
 	private Result result;
@@ -25,7 +33,24 @@ public class EvaluationController {
 	@Path("/listAll")
 	public void listAll(){
 		ArrayList<Evaluation> evaluation = EvaluationDAO.listAll();
-		result.use(Results.json()).from(evaluation, "evaluation").recursive().serialize();	
+		result.use(Results.json()).from(evaluation, "evaluation").recursive().serialize();
+	}
+	
+	@Consumes(value = "application/json", options = WithoutRoot.class)
+	@Post("/salvar")
+	public void insert(Evaluation evaluation){
+		System.out.println();
+		System.out.println();
+		System.out.println(evaluation.getDateEvaluation());
+		System.out.println(evaluation.getSupervisor());
+		System.out.println(evaluation.getTrainee());
+		System.out.println("=======================================Chama o método");
+		EvaluationDAO dao = new EvaluationDAO();
+		dao.insert(evaluation);
+		InternshipController internshipController = new InternshipController();
+		int idTrainee = Integer.parseInt(evaluation.getTrainee().toString());
+		internshipController.searchInternship(idTrainee);
+		result.use(Results.json()).from("success").serialize();
 	}
 	
 }

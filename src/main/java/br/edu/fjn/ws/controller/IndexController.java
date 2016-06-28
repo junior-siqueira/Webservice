@@ -9,6 +9,10 @@ import br.edu.fjn.ws.components.UserSession;
 
 @Controller
 public class IndexController {
+	
+	public IndexController() {
+		// TODO Auto-generated constructor stub
+	}
 
 	@Inject
 	private UserSession userSession;

@@ -17,7 +17,7 @@ public class CompareDate {
 		Date data = new Date(System.currentTimeMillis());
 		
 		Date date = dateFormat.parse(dataFinal);
-		long result = (date.getTime() - data.getTime()) + 3600000;
+		long result = (data.getTime() - date.getTime()) + 3600000;
 		
 		return result / 86400000L + 1;	
 	}
