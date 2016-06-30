@@ -66,6 +66,6 @@ public class InternshipController {
 		Internship internship = internshipDAO.searchId(id);
 		internship.setStatus("0");
 		internshipDAO.updateStatus(internship);
-		result.use(Results.json()).from(internship, "internship").recursive().serialize();
+		//result.use(Results.json()).from(internship, "internship").recursive().serialize();
 	}
 }

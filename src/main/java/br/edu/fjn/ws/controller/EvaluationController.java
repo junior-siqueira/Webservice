@@ -17,6 +17,7 @@ import br.edu.fjn.ws.dao.EvaluationDAO;
 import br.edu.fjn.ws.dao.InternshipDAO;
 import br.edu.fjn.ws.model.Evaluation;
 import br.edu.fjn.ws.model.Internship;
+import br.edu.fjn.ws.resources.CompareDate;
 
 @Controller
 @Path("/evaluation")
@@ -46,6 +47,7 @@ public class EvaluationController {
 		System.out.println(evaluation.getTrainee());
 		System.out.println("=======================================Chama o método");
 		EvaluationDAO dao = new EvaluationDAO();
+		evaluation.setDateResponse(CompareDate.saveDate());
 		dao.insert(evaluation);
 		InternshipController internshipController = new InternshipController();
 		int idTrainee = Integer.parseInt(evaluation.getTrainee().toString());

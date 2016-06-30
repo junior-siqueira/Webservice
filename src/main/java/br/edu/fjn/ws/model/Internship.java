@@ -40,8 +40,7 @@ public class Internship implements Serializable{
 	@Column(nullable = false)
 	private String dateStart;
 	
-	private String dateEvalution;
-	
+	private String dateEvaluation;
 
 	public Integer getId() {
 		return id;
@@ -83,12 +82,12 @@ public class Internship implements Serializable{
 		this.dateStart = dateStart;
 	}
 
-	public String getDateEvalution() {
-		return dateEvalution;
+	public String getDateEvaluation() {
+		return dateEvaluation;
 	}
 
-	public void setDateEvalution(String dateEvalution) {
-		this.dateEvalution = dateEvalution;
+	public void setDateEvaluation(String dateEvaluation) {
+		this.dateEvaluation = dateEvaluation;
 	}
 
 	@Override
@@ -96,7 +95,7 @@ public class Internship implements Serializable{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result
-				+ ((dateEvalution == null) ? 0 : dateEvalution.hashCode());
+				+ ((dateEvaluation == null) ? 0 : dateEvaluation.hashCode());
 		result = prime * result
 				+ ((dateStart == null) ? 0 : dateStart.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
@@ -116,10 +115,10 @@ public class Internship implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Internship other = (Internship) obj;
-		if (dateEvalution == null) {
-			if (other.dateEvalution != null)
+		if (dateEvaluation == null) {
+			if (other.dateEvaluation != null)
 				return false;
-		} else if (!dateEvalution.equals(other.dateEvalution))
+		} else if (!dateEvaluation.equals(other.dateEvaluation))
 			return false;
 		if (dateStart == null) {
 			if (other.dateStart != null)
@@ -148,6 +147,5 @@ public class Internship implements Serializable{
 			return false;
 		return true;
 	}
-
 	
 }

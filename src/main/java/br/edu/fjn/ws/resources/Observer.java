@@ -23,13 +23,13 @@ public class Observer {
 							ArrayList<Internship> internship = InternshipDAO.listAll();
 							InternshipDAO dao = new InternshipDAO();
 							for(Internship in : internship){
-									long result = CompareDate.compareDate(dao.searchId(in.getId()).getDateEvalution());
+									long result = CompareDate.compareDate(dao.searchId(in.getId()).getDateEvaluation());
 									System.out.println("Estamos com "+result+" dias no estágio "+in.getId());
 									if(result >= 15){
 										if(dao.searchId(in.getId()).getStatus().equals("0")){
 											Internship internshipUpdate = dao.searchId(in.getId());
 											internshipUpdate.setStatus("1");
-											internshipUpdate.setDateEvalution(CompareDate.saveDate());
+											internshipUpdate.setDateEvaluation(CompareDate.saveDate());
 											dao.updateStatus(internshipUpdate);
 										}else{
 											System.out.println("O estágio "+in.getId()+" ainda não precisa de avaliação");
