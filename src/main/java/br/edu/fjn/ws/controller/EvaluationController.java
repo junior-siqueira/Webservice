@@ -29,6 +29,11 @@ public class EvaluationController {
 
 	@Inject
 	private Result result;
+
+	@Get("/form")
+	public void form(){
+		
+	}
 	
 	@Get
 	@Path("/listAll")
