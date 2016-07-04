@@ -40,19 +40,13 @@ public class EvaluationController {
 	@Consumes(value = "application/json", options = WithoutRoot.class)
 	@Post("/salvar")
 	public void insert(Evaluation evaluation){
-		System.out.println();
-		System.out.println();
-		System.out.println(evaluation.getDateEvaluation());
-		System.out.println(evaluation.getSupervisor());
-		System.out.println(evaluation.getTrainee());
-		System.out.println("=======================================Chama o método");
 		EvaluationDAO dao = new EvaluationDAO();
 		evaluation.setDateResponse(CompareDate.saveDate());
 		dao.insert(evaluation);
 		InternshipController internshipController = new InternshipController();
 		int idTrainee = Integer.parseInt(evaluation.getTrainee().toString());
 		internshipController.searchInternship(idTrainee);
-		result.use(Results.json()).from("success").serialize();
+		result.use(Results.json()).from("OK").serialize();
 	}
 	
 }

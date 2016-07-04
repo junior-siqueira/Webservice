@@ -60,6 +60,16 @@ public class InternshipController {
 	}
 	
 	@Get
+	@Path("list/{id}")
+	public void list(int id){
+		InternshipDAO internshipDAO = new InternshipDAO();
+		result.use(Results.json()).from(internshipDAO.listSupervStatus(id), "internship").exclude("dateStart","status",
+				"supervisor.contact","supervisor.user","supervisor.name").recursive().serialize();
+	}
+	
+	
+	
+	@Get
 	@Path("searchInternship/{id}")
 	public void searchInternship(int id){
 		InternshipDAO internshipDAO = new InternshipDAO();

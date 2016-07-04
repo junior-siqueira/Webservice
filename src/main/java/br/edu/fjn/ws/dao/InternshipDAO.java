@@ -64,6 +64,34 @@ public class InternshipDAO {
 	
 	
 	@SuppressWarnings("unchecked")
+	public ArrayList<Internship> listSupervStatus(int id){
+		EntityManager manager = Connection.getConnection();
+		Session session = (Session) manager.getDelegate();
+		
+		Criteria idSuperv = session.createCriteria(Supervisor.class);
+		Criterion c1 = Restrictions.eq("id", id);
+		idSuperv.add(c1);
+		Criteria statusInt = session.createCriteria(Internship.class).addOrder(Order.asc("id"));;
+		Criterion c2 = Restrictions.eq("supervisor", idSuperv.uniqueResult());
+		Criterion c3 = Restrictions.eq("status", "1");
+		statusInt.add(c2);
+		statusInt.add(c3);
+	
+		return (ArrayList<Internship>) statusInt.list();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@SuppressWarnings("unchecked")
 	public static ArrayList<Internship> listAll() {
 		Criteria criteria = Connection.getSession().createCriteria(Internship.class).addOrder(Order.asc("id"));
 		return (ArrayList<Internship>) criteria.list();
