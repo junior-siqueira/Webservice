@@ -11,7 +11,7 @@ import br.edu.fjn.ws.test.DateTest;
 
 public class Observer {
 
-		public void execute(@Observes VRaptorInitialized event){
+		public void execute(/*@Observes VRaptorInitialized event*/){
 			long TEMPO = (100 * 50);
 			Timer timer = null;
 			if(timer == null){

@@ -37,7 +37,6 @@ public class EvaluationController {
 		result.use(Results.json()).from(evaluation, "evaluation").recursive().serialize();
 	}
 	
-	@Consumes(value = "application/json", options = WithoutRoot.class)
 	@Post("/salvar")
 	public void insert(Evaluation evaluation){
 		EvaluationDAO dao = new EvaluationDAO();

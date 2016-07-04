@@ -1,5 +1,6 @@
 package br.edu.fjn.ws.controller;
 
+import java.lang.ProcessBuilder.Redirect;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,13 +28,17 @@ public class InternshipController {
 	private Result result;
 	
 
+	@Get("/form")
+	public void form(){
+		
+	}
+	
 	@Post
-	@Path("/insert")
-	@Consumes("application/json")
 	public void insert(Internship internship){
 		InternshipDAO internshipDAO = new InternshipDAO();
 		internshipDAO.insert(internship);
 		System.out.println("Estágio inserido :D");
+		//result.redirectTo(this).form();
 	}
 	
 	@Get
