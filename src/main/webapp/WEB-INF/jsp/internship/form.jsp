@@ -12,10 +12,10 @@
 		<input type="text" name="internship.status"><br>
 		
 		<label>Supervisor</label>
-		<input type="number" name="internship.supervisor.id"><br>
+		<input type="text" name="internship.supervisor.id"><br>
 		
 		<label>Trainee</label>
-		<input type="number" name="internship.trainee.id"><br>
+		<input type="text" name="internship.trainee.id"><br>
 		
 		<label>Date Start</label>
 		<input type="text" name="internship.dateStart"><br>

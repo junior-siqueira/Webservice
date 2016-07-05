@@ -35,10 +35,14 @@ public class InternshipController {
 	
 	@Post
 	public void insert(Internship internship){
-		InternshipDAO internshipDAO = new InternshipDAO();
-		internshipDAO.insert(internship);
-		System.out.println("Estágio inserido :D");
-		//result.redirectTo(this).form();
+		try {
+			InternshipDAO internshipDAO = new InternshipDAO();
+			internshipDAO.insert(internship);
+			System.out.println("Estágio inserido :D");
+			result.redirectTo(this).form();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Get

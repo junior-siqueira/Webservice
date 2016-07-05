@@ -31,10 +31,10 @@ public class Internship implements Serializable{
 	@Column(nullable = false)
 	private String status;
 	
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER)
 	private Supervisor supervisor;
 	
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToOne( fetch = FetchType.EAGER)
 	private Trainee trainee;
 	
 	@Column(nullable = false)
