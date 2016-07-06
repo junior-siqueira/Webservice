@@ -12,7 +12,7 @@ import br.edu.fjn.ws.test.DateTest;
 public class Observer {
 
 		public void execute(@Observes VRaptorInitialized event){
-			long TEMPO = (100 * 100);
+			long TEMPO = (100 * 100);//verifica em intervalos de 10 segundos
 			Timer timer = null;
 			if(timer == null){
 				timer = new Timer();

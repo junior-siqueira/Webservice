@@ -8,7 +8,7 @@ import org.hibernate.Session;
 
 public class Connection {
 
-	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("projetofjn");
+	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("fjnestagios");
 
 	private Connection() {
 
