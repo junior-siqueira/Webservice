@@ -31,7 +31,7 @@ public class Supervisor implements Serializable{
 	@Column(nullable = false)
 	private String contact;
 	
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER)
 	private User user;
 
 	public Integer getId() {
