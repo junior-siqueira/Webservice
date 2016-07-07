@@ -74,8 +74,10 @@ public class InternshipDAO {
 		Criteria statusInt = session.createCriteria(Internship.class).addOrder(Order.asc("id"));;
 		Criterion c2 = Restrictions.eq("supervisor", idSuperv.uniqueResult());
 		Criterion c3 = Restrictions.eq("status", "1");
+		Criterion c4 = Restrictions.eq("progress", "Em andamento");
 		statusInt.add(c2);
 		statusInt.add(c3);
+		statusInt.add(c4);
 	
 		return (ArrayList<Internship>) statusInt.list();
 	}

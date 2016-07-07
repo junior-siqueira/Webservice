@@ -23,19 +23,21 @@ public class Observer {
 							ArrayList<Internship> internship = InternshipDAO.listAll();
 							InternshipDAO dao = new InternshipDAO();
 							for(Internship in : internship){
-									long result = CompareDate.compareDate(dao.searchId(in.getId()).getDateEvaluation());
-									System.out.println("Estamos com "+result+" dias no estágio "+in.getId());
-									if(result >= 15){
-										if(dao.searchId(in.getId()).getStatus().equals("0")){
-											Internship internshipUpdate = dao.searchId(in.getId());
-											internshipUpdate.setStatus("1");
-											internshipUpdate.setDateEvaluation(CompareDate.saveDate());
-											dao.updateStatus(internshipUpdate);
+									if(in.getProgress().equals("Em andamento")){
+										long result = CompareDate.compareDate(dao.searchId(in.getId()).getDateEvaluation());
+										System.out.println("Estamos com "+result+" dias no estágio "+in.getId());
+										if(result >= 15){
+											if(dao.searchId(in.getId()).getStatus().equals("0")){
+												Internship internshipUpdate = dao.searchId(in.getId());
+												internshipUpdate.setStatus("1");
+												internshipUpdate.setDateEvaluation(CompareDate.saveDate());
+												dao.updateStatus(internshipUpdate);
+											}else{
+												System.out.println("O estágio "+in.getId()+" ainda não precisa de avaliação");
+											}
 										}else{
-											System.out.println("O estágio "+in.getId()+" ainda não precisa de avaliação");
+											System.out.println("O estágio "+in.getId()+" ainda não atingiu o prazo da avaliação!!!");
 										}
-									}else{
-										System.out.println("O estágio "+in.getId()+" ainda não atingiu o prazo da avaliação!!!");
 									}
 								} 		
 							System.out.println();

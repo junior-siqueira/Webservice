@@ -23,6 +23,13 @@
 		<label>Date Evaluation</label>
 		<input type="text" name="internship.dateEvaluation"><br>
 		
+		<label>Date Evaluation</label>
+		<select name="internship.progress">
+		  <option value="Em andamento">Em andamento</option>
+		  <option value="Encerrado">Encerrado</option>
+		</select><br>
+		
+		
 		<button type="submit">Cadastrar</button>
 	</form>
 </body>

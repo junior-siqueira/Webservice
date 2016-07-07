@@ -42,6 +42,73 @@ public class Internship implements Serializable{
 	
 	private String dateEvaluation;
 
+	private String progress;
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((dateEvaluation == null) ? 0 : dateEvaluation.hashCode());
+		result = prime * result
+				+ ((dateStart == null) ? 0 : dateStart.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result
+				+ ((progress == null) ? 0 : progress.hashCode());
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		result = prime * result
+				+ ((supervisor == null) ? 0 : supervisor.hashCode());
+		result = prime * result + ((trainee == null) ? 0 : trainee.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Internship other = (Internship) obj;
+		if (dateEvaluation == null) {
+			if (other.dateEvaluation != null)
+				return false;
+		} else if (!dateEvaluation.equals(other.dateEvaluation))
+			return false;
+		if (dateStart == null) {
+			if (other.dateStart != null)
+				return false;
+		} else if (!dateStart.equals(other.dateStart))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (progress == null) {
+			if (other.progress != null)
+				return false;
+		} else if (!progress.equals(other.progress))
+			return false;
+		if (status == null) {
+			if (other.status != null)
+				return false;
+		} else if (!status.equals(other.status))
+			return false;
+		if (supervisor == null) {
+			if (other.supervisor != null)
+				return false;
+		} else if (!supervisor.equals(other.supervisor))
+			return false;
+		if (trainee == null) {
+			if (other.trainee != null)
+				return false;
+		} else if (!trainee.equals(other.trainee))
+			return false;
+		return true;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -90,62 +157,11 @@ public class Internship implements Serializable{
 		this.dateEvaluation = dateEvaluation;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((dateEvaluation == null) ? 0 : dateEvaluation.hashCode());
-		result = prime * result
-				+ ((dateStart == null) ? 0 : dateStart.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((status == null) ? 0 : status.hashCode());
-		result = prime * result
-				+ ((supervisor == null) ? 0 : supervisor.hashCode());
-		result = prime * result + ((trainee == null) ? 0 : trainee.hashCode());
-		return result;
+	public String getProgress() {
+		return progress;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Internship other = (Internship) obj;
-		if (dateEvaluation == null) {
-			if (other.dateEvaluation != null)
-				return false;
-		} else if (!dateEvaluation.equals(other.dateEvaluation))
-			return false;
-		if (dateStart == null) {
-			if (other.dateStart != null)
-				return false;
-		} else if (!dateStart.equals(other.dateStart))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (status == null) {
-			if (other.status != null)
-				return false;
-		} else if (!status.equals(other.status))
-			return false;
-		if (supervisor == null) {
-			if (other.supervisor != null)
-				return false;
-		} else if (!supervisor.equals(other.supervisor))
-			return false;
-		if (trainee == null) {
-			if (other.trainee != null)
-				return false;
-		} else if (!trainee.equals(other.trainee))
-			return false;
-		return true;
+	public void setProgress(String progress) {
+		this.progress = progress;
 	}
-	
 }

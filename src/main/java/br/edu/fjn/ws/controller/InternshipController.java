@@ -74,6 +74,7 @@ public class InternshipController {
 		InternshipDAO internshipDAO = new InternshipDAO();
 		result.use(Results.json()).from(internshipDAO.listSupervStatus(id), "internship").exclude("dateStart","status",
 				"supervisor.contact","supervisor.user","supervisor.name").recursive().serialize();
+		System.out.println(internshipDAO.listSupervStatus(id).size());
 	}
 	
 	
