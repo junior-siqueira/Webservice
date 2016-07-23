@@ -32,12 +32,12 @@
 			</div>
 		</header>
 		<div class="mdl-layout__drawer">
-			<span class="mdl-layout-title">Navegação</span>
+			<span class="mdl-layout-title">Menu</span>
 			<nav class="mdl-navigation">
-				<a href="#" class="mdl-navigation__link">Link 1</a>
-				<a href="#" class="mdl-navigation__link">Link 2</a>
-				<a href="#" class="mdl-navigation__link">Link 3</a>
-				<a href="#" class="mdl-navigation__link">Link 4</a>
+				<a href="#" class="mdl-navigation__link">Estágios</a>
+				<a href="#" class="mdl-navigation__link">Estagiários</a>
+				<a href="#" class="mdl-navigation__link">Usuário</a>
+				<a href="#" class="mdl-navigation__link">Configurações</a>
 			</nav>
 		</div>
 	
