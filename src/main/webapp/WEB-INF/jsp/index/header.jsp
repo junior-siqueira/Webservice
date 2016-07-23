@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-blue.min.css" />
 <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
 <title>Página Inicial</title>
 </head>
@@ -25,8 +25,8 @@
 				
 				<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
 				    for="demo-menu-lower-right">
-				  <li class="mdl-menu__item">Gerenciar</li>
-				  <li class="mdl-menu__item">Sair</li>
+				  <a href="#" class="mdl-menu__item">Gerenciar</a>
+				  <a href="${linkTo[LoginController].logout()}" class="mdl-menu__item">Sair</a>
 				  
 				</ul>
 			</div>

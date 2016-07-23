@@ -47,4 +47,10 @@ public class LoginController {
 			result.redirectTo(this).form();
 		}
 	}
+		
+	@Get("logout")
+	public void logout(){
+		userSession.logout();
+		result.redirectTo(LoginController.class).form();
+	}
 }
