@@ -7,16 +7,13 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.edu.fjn.ws.components.UserSession;
 import br.edu.fjn.ws.dao.UserDAO;
 import br.edu.fjn.ws.model.User;
 
 @Controller
 @Path("/user")
 public class UserController {
-
-	public UserController() {
-		// TODO Auto-generated constructor stub
-	}
 	
 	@Inject
 	private Result result;
@@ -25,6 +22,12 @@ public class UserController {
 	public void form(){
 		
 	}
+	
+	@Get("/manager")
+	public void manager(){
+		
+	}
+	
 	
 	@Post("/insert")
 	public void insert(User user){

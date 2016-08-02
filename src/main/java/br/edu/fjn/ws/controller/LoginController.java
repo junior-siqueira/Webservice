@@ -11,12 +11,13 @@ import br.edu.fjn.ws.components.UserSession;
 import br.edu.fjn.ws.dao.LoginDao;
 import br.edu.fjn.ws.model.User;
 
+/*
+ * 
+ * @author Antonio Siqueira
+ */
+
 @Controller
 public class LoginController {
-
-	public LoginController() {
-		// TODO Auto-generated constructor stub
-	}
 	
 	@Inject
 	private Result result;
